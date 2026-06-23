@@ -1,0 +1,34 @@
+backend/
+│
+├── src/
+│   ├── config/
+│   │   └── db.js
+│   │
+│   ├── models/
+│   │   ├── User.js
+│   │   ├── Product.js
+│   │   └── Cart.js
+│   │
+│   ├── controllers/
+│   │   ├── auth.controller.js
+│   │   ├── product.controller.js
+│   │   └── cart.controller.js
+│   │
+│   ├── routes/
+│   │   ├── auth.routes.js
+│   │   ├── product.routes.js
+│   │   └── cart.routes.js
+│   │
+│   ├── middleware/
+│   │   ├── auth.middleware.js
+│   │   └── error.middleware.js
+│   │
+│   ├── utils/
+│   │   └── generateToken.js
+│   │
+│   ├── app.js
+│   └── server.js
+│
+├── .env
+├── package.json
+└── nodemon.json
