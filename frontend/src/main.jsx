@@ -1,10 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
+import Profile from './pages/Profile/profile.jsx';
 
-import AuthPage from './pages/Register-login/register-login.jsx';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AuthPage />
+    <Profile />
   </StrictMode>,
 )
