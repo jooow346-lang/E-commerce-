@@ -1,6 +1,12 @@
 
 import axios from 'axios';
-axios.get('https://fakestoreapi.com/products')
-  .then(response => console.log(response.data));
 
+ const API = axios.create({
+    baseURL: 'http://localhost:5000',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  export default API
  

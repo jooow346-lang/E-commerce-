@@ -1,8 +1,36 @@
 import  { useState } from 'react';
 import { motion } from 'framer-motion';
-
+import API from './../../API/API.js';
 export default function AuthPage() {
   const [isActive, setIsActive] = useState(false);
+
+
+{/* ===================== login state ===================== */}
+
+const [loginEmail,setLoginEmail] = useState('');
+const [loginPassword,setLoginPassword] = useState('');
+{/* ===================== register state ===================== */}
+const [registerName,setRegisterName] = useState('');
+const [registerEmail,setRegisterEmail] = useState('');
+const [registerPassword,setRegisterPassword] = useState('');
+
+
+const handleLogin=()=>{
+API.post('/api/auth/login' ,{
+  email : loginEmail,
+  password : loginPassword
+})
+}
+
+const handleRegister=()=>{
+  API.post('/api/auth/register' ,{
+    name : registerName,
+    email : registerEmail,
+    password : registerPassword
+  })
+
+}
+
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-[#e2e2e2] to-[#c9d6ff] flex flex-col items-center justify-center font-['Montserrat',sans-serif] antialiased">
@@ -32,11 +60,15 @@ export default function AuthPage() {
             </div>
             
             <span className="text-xs text-gray-500 mb-2">or use your email for registration</span>
-            <input type="text" placeholder="Name" className="w-full bg-[#eee] border-none my-2 p-[10px_15px] text-xs rounded-lg outline-none" />
-            <input type="email" placeholder="Email" className="w-full bg-[#eee] border-none my-2 p-[10px_15px] text-xs rounded-lg outline-none" />
-            <input type="password" placeholder="Password" className="w-full bg-[#eee] border-none my-2 p-[10px_15px] text-xs rounded-lg outline-none" />
+            <input type="text" placeholder="Name" value={registerName} onChange={(e) => setRegisterName(e.target.value)}
+             className="w-full bg-[#eee] border-none my-2 p-[10px_15px] text-xs rounded-lg outline-none" />
+            <input type="email" placeholder="Email" value={registerEmail} onChange={(e) => setRegisterEmail(e.target.value)}
+            className="w-full bg-[#eee] border-none my-2 p-[10px_15px] text-xs rounded-lg outline-none" />
+            <input type="password" placeholder="Password" value={registerPassword} onChange={(e)=>{setRegisterPassword(e.target.value)}}
+            className="w-full bg-[#eee] border-none my-2 p-[10px_15px] text-xs rounded-lg outline-none" />
             
-            <button className="bg-[#2da0a8] text-white text-xs font-semibold uppercase tracking-[0.5px] px-11 py-[10px] rounded-lg border border-transparent mt-[10px] cursor-pointer active:scale-95 transition-transform">
+            <button  onClick={handleRegister}
+            className="bg-[#2da0a8] text-white text-xs font-semibold uppercase tracking-[0.5px] px-11 py-[10px] rounded-lg border border-transparent mt-[10px] cursor-pointer active:scale-95 transition-transform">
               Sign Up
             </button>
           </form>
@@ -63,12 +95,15 @@ export default function AuthPage() {
             </div>
             
             <span className="text-xs text-gray-500 mb-2">or use your email password</span>
-            <input type="email" placeholder="Email" className="w-full bg-[#eee] border-none my-2 p-[10px_15px] text-xs rounded-lg outline-none" />
-            <input type="password" placeholder="Password" className="w-full bg-[#eee] border-none my-2 p-[10px_15px] text-xs rounded-lg outline-none" />
+            <input type="email" placeholder="Email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)}
+            className="w-full bg-[#eee] border-none my-2 p-[10px_15px] text-xs rounded-lg outline-none" />
+            <input type="password" placeholder="Password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)}
+            className="w-full bg-[#eee] border-none my-2 p-[10px_15px] text-xs rounded-lg outline-none" />
             
             <a href="#" className="text-gray-700 text-[13px] no-underline my-[15px] mb-[10px]">Forget Your Password?</a>
             
-            <button className="bg-[#2da0a8] text-white text-xs font-semibold uppercase tracking-[0.5px] px-11 py-[10px] rounded-lg border border-transparent mt-[10px] cursor-pointer active:scale-95 transition-transform">
+            <button onClick={handleLogin}
+            className="bg-[#2da0a8] text-white text-xs font-semibold uppercase tracking-[0.5px] px-11 py-[10px] rounded-lg border border-transparent mt-[10px] cursor-pointer active:scale-95 transition-transform">
               Sign In
             </button>
           </form>
