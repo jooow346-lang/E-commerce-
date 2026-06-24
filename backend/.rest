@@ -1,6 +1,7 @@
 POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
+
 {
     "email":"jow@gmail.com",
     "password":"123"
@@ -18,3 +19,27 @@ Content-Type: application/json
     "password":"123"
 
 }
+
+
+
+###
+
+
+POST http://localhost:5000/api/auth/refresh
+Content-Type: application/json
+
+{
+    "refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2YTNiZTNlYTVhNWQ1MGE5YjM1Mjg4YjIiLCJpYXQiOjE3ODIzMTU2NDAsImV4cCI6MTc4MjkyMDQ0MH0.pSU2lpusNupdcY8SKqv3OTDTYg11gG6RLpLkEbc0U9Q"
+}
+
+
+
+###
+POST http://localhost:5000/api/auth/logout
+Content-Type: application/json
+
+{
+    "refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2YTNiZTNlYTVhNWQ1MGE5YjM1Mjg4YjIiLCJpYXQiOjE3ODIzMzczNDUsImV4cCI6MTc4Mjk0MjE0NX0.doizu8CPhnxmUyLBT7wDVujHy_vnQrsRBlN5Z_HvZPk"
+}
+
+
