@@ -43,3 +43,20 @@ Content-Type: application/json
 }
 
 
+###
+
+
+GET http://localhost:5000/api/user/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2YTNiZTNlYTVhNWQ1MGE5YjM1Mjg4YjIiLCJpYXQiOjE3ODI0MTAwNDUsImV4cCI6MTc4MjQxMDk0NX0.SFC5t_XhkyXUoMjgboDW4OfVFImV6DcXgO2NZ_RDqsE
+
+###
+
+
+PUT http://localhost:5000/api/user/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2YTNiZTNlYTVhNWQ1MGE5YjM1Mjg4YjIiLCJpYXQiOjE3ODI0MTExODMsImV4cCI6MTc4MjQxMjA4M30.UmxIzvNPSFeMeZyWk_KhsvKD7d0JKuwh8h05xYaNQWY
+Content-Type: application/json
+
+{
+  "phone":"01012345678",
+  "profileName":"yusuf"
+}

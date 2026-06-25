@@ -1,6 +1,17 @@
-
+import API from './../../API/API.js';
 import ProfileSidebar from './../../components/Navbar/navebar.jsx';
+import { useState } from 'react';
+
+
+
 function Profile() {
+
+
+
+
+
+
+
   return (
     <div className="min-h-screen bg-[#f7f8fc] p-10">
 
@@ -16,19 +27,22 @@ function Profile() {
               Personal Information
             </h1>
 
-            <button className="text-blue-500 font-medium">
+            <button className="text-blue-500 font-medium cursor-pointer">
               Edit Profile
             </button>
 
           </div>
 
           <div className="flex items-center gap-6 mb-10">
-
-            <img
+            <div className="relative">
+               <img
               src="https://i.pravatar.cc/200?img=12"
               alt=""
               className="w-28 h-28 rounded-full object-cover"
-            />
+              />
+              <img className='h-7 w-7 rounded-full object-cover cursor-pointer absolute bottom-0 right-0' src="./../../../public/icons/edit-button.png" alt="" />
+            </div>
+           
 
             <div>
               <h2 className="text-2xl font-semibold">
@@ -42,7 +56,7 @@ function Profile() {
 
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="flex flex-col gap-4">
 
             <div>
               <label className="text-gray-500 block mb-2">
@@ -90,6 +104,11 @@ function Profile() {
                 readOnly
                 className="w-full bg-gray-50 p-4 rounded-xl outline-none"
               />
+               <label className="text-gray-500 block mb-2">
+                role
+              </label>
+
+              <p className="w-full bg-gray-50 p-4 rounded-xl outline-none">user</p>
             </div>
 
           </div>

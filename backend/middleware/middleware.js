@@ -21,3 +21,5 @@ jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err,user)=>{
 })
 
 }
+
+module.exports = authenticationMiddleware
