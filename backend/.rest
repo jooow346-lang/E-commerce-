@@ -60,3 +60,8 @@ Content-Type: application/json
   "phone":"01012345678",
   "profileName":"yusuf"
 }
+
+###
+
+GET http://localhost:5000/api/products/product
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2YTNiZTNlYTVhNWQ1MGE5YjM1Mjg4YjIiLCJpYXQiOjE3ODI0MTkyNjAsImV4cCI6MTc4MjQyMDE2MH0.gk-hEmrmfaLXrA0mnWfUpMA7SFWcwzhOUtZVJ-QAmhU
