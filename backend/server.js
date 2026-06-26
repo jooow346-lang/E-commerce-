@@ -6,6 +6,8 @@ require('dotenv').config();
 const authRouter = require( './routers/auth');
 const userRouter = require('./routers/user');
 const productRouter = require('./routers/products');
+const cartRouter = require( './routers/cart');
+const orderRouter = require( './routers/orders');
 app.use(cors());
 app.use(express.json());
 mongoose.connect(process.env.MONGO_URL)
@@ -26,6 +28,12 @@ app.use('/uploads', express.static('uploads'));
 
 
 app.use('/api/products', productRouter);
+
+
+app.use('/api/cart', cartRouter);
+
+
+app.use('/api/orders', orderRouter);
 
 app.listen(5000, () => {
     console.log('Server is running on port 5000');
