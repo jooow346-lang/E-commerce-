@@ -16,7 +16,10 @@ jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err,user)=>{
             message: "Invalid access token"
         });
     }
-    req.user = user;
+    req.user = {
+    _id: user._id,
+    role: user.role
+};
     next();
 })
 

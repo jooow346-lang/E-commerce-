@@ -56,8 +56,27 @@ router.post('/login' , async (req , res) => {
         return res.status(400).send('invalid password');
     }
 
-    const accessToken = await jwt.sign({_id : user._id} , process.env.ACCESS_TOKEN_SECRET,{expiresIn : '15m'});
-    const refreshToken = await jwt.sign({_id:user._id} , process.env.REFRESH_TOKEN_SECRET,{expiresIn : '7d'})  
+    const accessToken = jwt.sign(
+  {
+    _id: user._id,
+    role: user.role
+  },
+  process.env.ACCESS_TOKEN_SECRET,
+  {
+    expiresIn: "15m"
+  }
+);
+
+const refreshToken = jwt.sign(
+  {
+    _id: user._id,
+    role: user.role
+  },
+  process.env.REFRESH_TOKEN_SECRET,
+  {
+    expiresIn: "7d"
+  }
+);
     user.refreshToken = refreshToken;
     await user.save();  
     res.status(200).json({accessToken , refreshToken});
@@ -80,7 +99,16 @@ router.post('/refresh' , async (req , res) => {
         const decoded  = await jwt.verify(refreshToken , process.env.REFRESH_TOKEN_SECRET);
        
         const user = await User.findById(decoded._id);
-         const accessToken = await jwt.sign({_id : decoded ._id} , process.env.ACCESS_TOKEN_SECRET , {expiresIn : '15m'});
+         const accessToken = jwt.sign(
+  {
+    _id: user._id,
+    role: user.role
+  },
+  process.env.ACCESS_TOKEN_SECRET,
+  {
+    expiresIn: "15m"
+  }
+);
          if (!refreshToken) {
           return res.status(401).json({
             message: "Refresh token required"
